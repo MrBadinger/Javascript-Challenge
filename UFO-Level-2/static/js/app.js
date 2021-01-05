@@ -33,7 +33,11 @@ function runDateFilter() {
     var shapevalue = d3.select("#shape2");
 
     // Get the datetime value property of the input element
-    var inputValue = datevalue.property("value");
+    var date_inputValue = datevalue.property("value");
+    var city_inputValue = cityvalue.property("value");
+    var state_inputValue = statevalue.property("value");
+    var country_inputValue = countrydatevalue.property("value");
+    var shape_inputValue = shapevalue.property("value");
 
     // Filter the data on datetime
     var filteredData = tableData.filter(UFOsite => UFOsite.datetime === inputValue);
