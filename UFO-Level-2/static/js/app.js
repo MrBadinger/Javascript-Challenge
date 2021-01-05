@@ -25,8 +25,12 @@ button.on("click", runDateFilter);
 // date filter function - See 3_09 javascript notes
 function runDateFilter() {
 
-    // Select the datetime input element and get the raw HTML node
-    var datevalue = d3.select("#datetime");
+    // Select the filters input element and get the raw HTML node
+    var datevalue = d3.select("#datetime2");
+    var cityvalue = d3.select("#city2");
+    var statevalue = d3.select("#state2");
+    var countrydatevalue = d3.select("#country2");
+    var shapevalue = d3.select("#shape2");
 
     // Get the datetime value property of the input element
     var inputValue = datevalue.property("value");
