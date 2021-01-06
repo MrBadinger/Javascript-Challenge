@@ -25,24 +25,29 @@ button.on("click", runDateFilter);
 // date filter function - See 3_09 javascript notes
 function runDateFilter() {
 
-    // Select the filters input element and get the raw HTML node
-    var datevalue = d3.select("#datetime2");
+    // Prevent the page from refreshing
+    d3.event.preventDefault();
+
+    //Clear the body
+    tbody.html("");
+
+    // Select the filters input element and get the raw HTML node  
+    var datevalue = d3.select("#datetime2");  
     var cityvalue = d3.select("#city2");
     var statevalue = d3.select("#state2");
     var countrydatevalue = d3.select("#country2");
     var shapevalue = d3.select("#shape2");
 
     // Get the datetime value property of the input element
-    var date_inputValue = datevalue.property("value");
-    var city_inputValue = cityvalue.property("value");
-    var state_inputValue = statevalue.property("value");
-    var country_inputValue = countrydatevalue.property("value");
-    var shape_inputValue = shapevalue.property("value");
+    var date_inputValue = datevalue.property("value");    //Need to make the value lowercase to match user input with dataset 
+    var city_inputValue = cityvalue.property("value").toLowerCase();
+    var state_inputValue = statevalue.property("value").toLowerCase();
+    var country_inputValue = countrydatevalue.property("value").toLowerCase();
+    var shape_inputValue = shapevalue.property("value").toLowerCase();
 
     // Filter the data on variable. Without IF statements the filter will fail as it will require all 5 to be filled to filter correctly
     var filteredData = tableData
 
-    
     if(date_inputValue){var filteredData = filteredData.filter(UFOsite => UFOsite.datetime === date_inputValue);}
     if(city_inputValue){var filteredData = filteredData.filter(UFOsite => UFOsite.city === city_inputValue);}
     if(state_inputValue){var filteredData = filteredData.filter(UFOsite => UFOsite.state === state_inputValue);}

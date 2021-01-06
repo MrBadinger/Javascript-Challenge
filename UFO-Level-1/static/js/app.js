@@ -24,6 +24,11 @@ button.on("click", runDateFilter);
 
 // date filter function - See 3_09 javascript notes
 function runDateFilter() {
+    // Prevent the page from refreshing
+    d3.event.preventDefault();
+
+    //Clear the body
+    tbody.html("");
 
     // Select the datetime input element and get the raw HTML node
     var datevalue = d3.select("#datetime");
