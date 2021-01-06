@@ -41,12 +41,12 @@ function runDateFilter() {
 
     // Filter the data on datetime
     var filteredData = tableData.filter(UFOsite => UFOsite.datetime === date_inputValue);
-    var filteredData = tableData.filter(UFOsite => UFOsite.city === city_inputValue);
-    var filteredData = tableData.filter(UFOsite => UFOsite.state === state_inputValue);
-    var filteredData = tableData.filter(UFOsite => UFOsite.country === country_inputValue);
-    var filteredData = tableData.filter(UFOsite => UFOsite.shape === shape_inputValue);
+    var filteredData = filteredData.filter(UFOsite => UFOsite.city === city_inputValue);
+    var filteredData = filteredData.filter(UFOsite => UFOsite.state === state_inputValue);
+    var filteredData = filteredData.filter(UFOsite => UFOsite.country === country_inputValue);
+    var filteredData = filteredData.filter(UFOsite => UFOsite.shape === shape_inputValue);
 
-
+    console.log(filteredData)
     // Loop Through the filtered ufo sighting data and append it to the table
     filteredData.forEach(function(filteredUFO) {
 
