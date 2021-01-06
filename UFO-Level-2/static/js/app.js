@@ -39,12 +39,15 @@ function runDateFilter() {
     var country_inputValue = countrydatevalue.property("value");
     var shape_inputValue = shapevalue.property("value");
 
-    // Filter the data on datetime
-    var filteredData = tableData.filter(UFOsite => UFOsite.datetime === date_inputValue);
-    var filteredData = filteredData.filter(UFOsite => UFOsite.city === city_inputValue);
-    var filteredData = filteredData.filter(UFOsite => UFOsite.state === state_inputValue);
-    var filteredData = filteredData.filter(UFOsite => UFOsite.country === country_inputValue);
-    var filteredData = filteredData.filter(UFOsite => UFOsite.shape === shape_inputValue);
+    // Filter the data on variable. Without IF statements the filter will fail as it will require all 5 to be filled to filter correctly
+    var filteredData = tableData
+
+    
+    if(date_inputValue){var filteredData = filteredData.filter(UFOsite => UFOsite.datetime === date_inputValue);}
+    if(city_inputValue){var filteredData = filteredData.filter(UFOsite => UFOsite.city === city_inputValue);}
+    if(state_inputValue){var filteredData = filteredData.filter(UFOsite => UFOsite.state === state_inputValue);}
+    if(country_inputValue){var filteredData = filteredData.filter(UFOsite => UFOsite.country === country_inputValue);}
+    if(shape_inputValue){var filteredData = filteredData.filter(UFOsite => UFOsite.shape === shape_inputValue);}
 
     console.log(filteredData)
     // Loop Through the filtered ufo sighting data and append it to the table
